@@ -98,13 +98,31 @@ def ma_ei_tea_mis_ma_teen_1( mats, mat, route, num, nums):
     print("Fill in the current prices for 1 material")
     inputi = float(input(mats))
     inputo = float(input(mat))
-    numi = float(num)
-    numo = float(nums)
+    numi = num
+    numo = nums
     result = route - inputi * numi - inputo * numo
     print("You will get:", result)
+    return result
 
 def ma_ei_tea_mis_ma_teen_2():
     return ma_ei_tea_mis_ma_teen_1( materials[11], materials[12],dew_solz_fi_price, amount[5], amount[2])
+
+def ma_ei_tea_mis_ma_teen_1_vol2( materialsList, route, materialAmountList):
+    #pridi toode
+    #kasutaja saab sisestada selle hinna
+    print("Fill in the current prices for 1 material")
+    inputs = []
+    for material in materialsList:
+        inputs.append(float(input(material)))
+    result = route
+    for i in range(0, len(materialsList)):
+        result = result - materialsList[i] * materialAmountList[i]
+    print("You will get:", result)
+    return result
+
+
+def ma_ei_tea_mis_ma_teen_2_vol2():
+    return ma_ei_tea_mis_ma_teen_1_vol2( [materials[11], materials[12]],dew_solz_fi_price, [amount[5], amount[2]])
 
 
 
